@@ -1,5 +1,6 @@
 {
-  "name": "Wikipedia Fundraiser Blocker",
+  "name": "Wiki Fundraiser Blocker",
+  "description": "Block the annoying fundraiser banners on Wikipedia",
   "manifest_version": 3,
   "version": "1.0",
   "icons": {
