@@ -9,7 +9,7 @@ const setCookies = async () => {
     path: "/",
     secure: false,
     httpOnly: false,
-    expirationDate: created + 31536000,
+    expirationDate: created + 604800,
   };
 
   await chrome.cookies.set(cookie);

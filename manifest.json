@@ -2,7 +2,7 @@
   "name": "Wiki Fundraiser Blocker",
   "description": "Block the annoying fundraiser banners on Wikipedia",
   "manifest_version": 3,
-  "version": "1.0",
+  "version": "0.0.0.1",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
