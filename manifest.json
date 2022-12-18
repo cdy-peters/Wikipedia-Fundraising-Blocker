@@ -2,9 +2,15 @@
   "name": "Wikipedia Fundraiser Blocker",
   "manifest_version": 3,
   "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.wikipedia.org/*"],
+      "js": ["scripts/content.js"]
+    }
+  ],
   "permissions": ["cookies"],
-  "host_permissions": ["https://*.wikipedia.org/*"],
-  "action": {
-    "default_popup": "popup.html"
-  }
+  "host_permissions": ["https://*.wikipedia.org/*"]
 }
