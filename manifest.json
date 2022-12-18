@@ -1,0 +1,10 @@
+{
+  "name": "Wikipedia Fundraiser Blocker",
+  "manifest_version": 3,
+  "version": "1.0",
+  "permissions": ["cookies"],
+  "host_permissions": ["https://*.wikipedia.org/*"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
