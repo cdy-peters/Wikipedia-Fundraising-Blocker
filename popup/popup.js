@@ -1,7 +1,21 @@
+const hideFundraiserBtn = document.getElementById("hide-fundraiser");
+let hideFundraiser = true;
+
+const changeFundraiserBtnText = () => {
+  if (hideFundraiser) {
+    hideFundraiserBtn.textContent = "Show Fundraiser";
+  } else {
+    hideFundraiserBtn.textContent = "Hide Fundraiser";
+  }
+};
+
 chrome.storage.local.get("hideFundraiser", (res) => {
-  document.getElementById("hide-fundraiser").checked = res.hideFundraiser;
+  hideFundraiser = res.hideFundraiser;
+  changeFundraiserBtnText();
 });
 
-document.getElementById("hide-fundraiser").addEventListener("click", (e) => {
-  chrome.storage.local.set({ hideFundraiser: e.target.checked });
+hideFundraiserBtn.addEventListener("click", () => {
+  chrome.storage.local.set({ hideFundraiser: !hideFundraiser });
+  hideFundraiser = !hideFundraiser;
+  changeFundraiserBtnText();
 });

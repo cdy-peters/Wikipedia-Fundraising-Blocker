@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
   <body>
     <h1>Wiki Fundraiser Blocker</h1>
 
-    <div style="display: flex; align-items: center">
-      <label for="hide-fundraiser">Hide Fundraiser</label>
-      <input type="checkbox" id="hide-fundraiser" />
+    <div id="options">
+      <button id="hide-fundraiser">Hide Fundraiser</button>
+      <button>Reload page</button>
+      <button>Donate</button>
+      <button>Website</button>
     </div>
-    <p>Page reload is required to update</p>
 
     <script src="popup.js"></script>
   </body>
