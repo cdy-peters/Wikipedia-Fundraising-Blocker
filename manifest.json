@@ -9,6 +9,9 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
   "background": {
     "service_worker": "background.js"
   },
@@ -19,7 +22,7 @@
       "run_at": "document_start"
     }
   ],
-  "permissions": ["cookies"],
+  "permissions": ["cookies", "storage"],
   "host_permissions": ["https://*.wikipedia.org/*"],
   "incognito": "split"
 }

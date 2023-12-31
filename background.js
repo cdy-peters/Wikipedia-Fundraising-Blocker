@@ -1,4 +1,4 @@
-const setCookies = async () => {
+const setCookie = async () => {
   const created = Math.floor(Date.now() / 1000);
 
   const cookie = {
@@ -15,6 +15,32 @@ const setCookies = async () => {
   await chrome.cookies.set(cookie);
 };
 
+const removeCookie = async () => {
+  await chrome.cookies.remove({
+    url: "https://en.wikipedia.org",
+    name: "centralnotice_hide_fundraising",
+  });
+};
+
+// Set hideFundraiser to true on first install
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason == "install") {
+    chrome.storage.local.set({ hideFundraiser: true });
+  }
+});
+
+// Set cookie on wikipedia page load
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request === "set_cookie") setCookies();
+  if (request === "set_cookie") {
+    chrome.storage.local.get("hideFundraiser", (res) => {
+      if (res.hideFundraiser) setCookie();
+    });
+  }
+});
+
+// Update cookie on popup toggle
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  if (namespace === "local") {
+    changes.hideFundraiser.newValue ? setCookie() : removeCookie();
+  }
 });
