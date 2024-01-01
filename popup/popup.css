@@ -6,6 +6,13 @@ body {
 
 h1 {
   text-align: center;
+  margin: 0;
+}
+
+#wikipedia-logo {
+  width: 60%;
+  margin: 15px auto;
+  display: block;
 }
 
 #options {
